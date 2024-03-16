@@ -2,23 +2,51 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    public MainPage()
+    {
+        InitializeComponent();
+    }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    private void OnSignInClicked(object sender, EventArgs e)
+    {
+        string username = UsernameEntry.Text;
+        string password = PasswordEntry.Text;
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+        // Perform validation
+        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+        {
+            DisplayAlert("Error", "Username and password are required", "OK");
+            return;
+        }
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+        // Check username and password against a database or authentication service
+        bool isAuthenticated = AuthenticateUser(username, password);
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+        if (isAuthenticated)
+        {
+            // Navigate to the Main page or another page upon successful sign-in
+            Navigation.PushAsync(new MainPage());
+        }
+        else
+        {
+            DisplayAlert("Error", "Invalid username or password", "OK");
+        }
+    }
+
+    private bool AuthenticateUser(string username, string password)
+    {
+        // Dummy authentication logic (Actual authentication mechanism yet to come)
+        // Assuming a hardcoded username and password for demonstration purposes
+        const string validUsername = "user123";
+        const string validPassword = "password123";
+
+        return (username == validUsername && password == validPassword);
+    }
+
+    private void OnSignUpTapped(object sender, EventArgs e)
+    {
+        // Navigate to the sign-up page
+        Navigation.PushAsync(new SignUpPage());
+    }
 }
 
