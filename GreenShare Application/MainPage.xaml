@@ -50,13 +50,16 @@
 
             <!-- Sign Up Link -->
             <Label
-                Text="Don't have an account? Sign Up"
-                FontSize="16"
-                TextColor="Blue"
-                HorizontalOptions="Center"
-                VerticalOptions="End"
-                Margin="0,20,0,0"
-                GestureRecognizers="OnSignUpTapped" />
+    Text="Don't have an account? Sign Up"
+    FontSize="16"
+    TextColor="Blue"
+    HorizontalOptions="Center"
+    VerticalOptions="End"
+    Margin="0,20,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSignUpTapped" />
+                </Label.GestureRecognizers>
+            </Label>
 
 
         </StackLayout>
