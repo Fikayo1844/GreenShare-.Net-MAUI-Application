@@ -4,43 +4,62 @@
              x:Class="GreenShare_Application.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+        <StackLayout
+            Spacing="20"
+            Padding="20">
 
+            <!-- App Logo or Banner -->
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Sign In page image"
-                HeightRequest="200"
+                Source="Image1.jpg"
+                HeightRequest="100"
                 HorizontalOptions="Center" />
 
+            <!-- Welcome Message -->
             <Label
-                Text="Sign In"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
+                Text="Welcome to GreenShare!"
+                FontSize="24"
                 HorizontalOptions="Center" />
 
-            <Entry
-                Placeholder="Username"
+            <!-- Description -->
+            <Label
+                Text="Share your plants with the community and discover new ones!"
                 FontSize="18"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                TextColor="Gray"
+                HorizontalTextAlignment="Center" />
 
+            <!-- Username Entry -->
             <Entry
+                x:Name="UsernameEntry"
+                Placeholder="Username"
+                FontSize="18" />
+
+            <!-- Password Entry -->
+            <Entry
+                x:Name="PasswordEntry"
                 Placeholder="Password"
                 IsPassword="True"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                FontSize="18" />
 
+            <!-- Sign In Button -->
             <Button
-                x:Name="CounterBtn"
                 Text="Sign In"
-                SemanticProperties.Hint="Signs you in"
-                Clicked="OnCounterClicked"
+                Clicked="OnSignInClicked"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-        </VerticalStackLayout>
+            <!-- Sign Up Link -->
+            <Label
+                Text="Don't have an account? Sign Up"
+                FontSize="16"
+                TextColor="Blue"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,20,0,0"
+                GestureRecognizers="OnSignUpTapped" />
+
+
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>
